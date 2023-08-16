@@ -19,7 +19,7 @@ Installation is simple - just run:
 Just initialize a new NovaApi instance passing your Nova.Money subdomain:
 
 ```javascript
-import NovaApi from 'nova-api';
+import NovaApi from '@coyosoftware/nova-api';
 
 const api = new NovaApi('YOUR_SUBDOMAIN', 'USER_API_KEY');
 ```
@@ -36,7 +36,7 @@ The response for all methods in the API client is an axios response object. Plea
 
 ### SignIn
 ```javascript
-import NovaApi from 'nova-api';
+import NovaApi from '@coyosoftware/nova-api';
 
 const api = new NovaApi('YOUR_SUBDOMAIN');
 
@@ -47,7 +47,7 @@ api.public.signIn(email, password);
 
 ### SignIn
 ```javascript
-import NovaApi from 'nova-api';
+import NovaApi from '@coyosoftware/nova-api';
 
 const api = new NovaApi('YOUR_SUBDOMAIN');
 
@@ -59,7 +59,7 @@ The Public Sign In is useful when you have the same user for multiple subdomains
 
 ### Subdomains
 ```javascript
-import NovaApi from 'nova-api';
+import NovaApi from '@coyosoftware/nova-api';
 
 const api = new NovaApi('YOUR_SUBDOMAIN', 'USER_API_KEY');
 
