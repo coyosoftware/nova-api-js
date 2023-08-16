@@ -1,39 +1,45 @@
 TN:
 SF:src/index.js
-FN:5,NovaApi
-FN:10,get public
-FN:14,get users
-FNF:3
-FNH:3
+FN:4,<instance_members_initializer>
+FN:8,NovaApi
+FN:13,get public
+FN:17,get users
+FNF:4
+FNH:4
+FNDA:2,<instance_members_initializer>
 FNDA:2,NovaApi
 FNDA:1,get public
 FNDA:1,get users
 DA:1,1
 DA:2,1
 DA:3,1
-DA:4,1
-DA:5,1
+DA:4,2
+DA:5,2
 DA:6,2
 DA:7,2
 DA:8,2
-DA:9,1
-DA:10,1
-DA:11,1
-DA:12,1
-DA:13,1
+DA:9,2
+DA:10,2
+DA:11,2
+DA:12,2
+DA:13,2
 DA:14,1
 DA:15,1
-DA:16,1
-DA:17,1
+DA:16,2
+DA:17,2
 DA:18,1
 DA:19,1
-LF:19
-LH:19
-BRDA:5,0,0,2
-BRDA:10,1,0,1
-BRDA:14,2,0,1
-BRF:3
-BRH:3
+DA:20,2
+DA:21,1
+DA:22,1
+LF:22
+LH:22
+BRDA:4,0,0,2
+BRDA:8,1,0,2
+BRDA:13,2,0,1
+BRDA:17,3,0,1
+BRF:4
+BRH:4
 end_of_record
 TN:
 SF:src/resources/base.js

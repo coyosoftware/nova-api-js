@@ -1,5 +1,5 @@
 {
-  "name": "nova-api",
+  "name": "@coyosoftware/nova-api",
   "version": "1.0.0",
   "description": "Nova API wrapper",
   "main": "index.js",
