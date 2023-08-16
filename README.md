@@ -24,7 +24,7 @@ import NovaApi from 'nova-api';
 const api = new NovaApi('YOUR_SUBDOMAIN', 'USER_API_KEY');
 ```
 
-Please note that the **USER_API_KEY** parameter is not required. If you initialize the client without it, you will have access only to the [public endpoints](#public) and [user sign in endpoint](#sign-in).
+Please note that the **USER_API_KEY** parameter is not required. If you initialize the client without it, you will have access only to the [public endpoints](#public) and [user sign in endpoint](#signin-1).
 
 With the api client instance you can use any of the [supported endpoints](#supported-endpoints).
 
