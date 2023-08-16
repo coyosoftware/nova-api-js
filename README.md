@@ -67,4 +67,4 @@ api.users.subdomain();
 ```
 
 # License
-GNU General Public License version 3, [https://opensource.org/license/gpl-3-0/](https://opensource.org/license/gpl-3-0/)
+MIT License, [https://opensource.org/license/mit/](https://opensource.org/license/mit/)
