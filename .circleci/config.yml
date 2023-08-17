@@ -1,10 +1,29 @@
 version: 2.1
 orbs:
   node: circleci/node@5.1.0
+jobs:
+  publish:
+    docker:
+      - image: cimg/node:18.15.0
+    steps:
+      - checkout
+      - run:
+          name: Publish to NPM
+          command: |
+            npm set //registry.npmjs.org/:_authToken=$NPM_TOKEN
+            npm publish
 workflows:
-  test:
+  tagged-build:
     jobs:
       - node/test:
           version: '18.15.0'
           pkg-manager: npm
           test-results-for: jest
+      - publish:
+          requires:
+            - node/test
+          filters:
+            tags:
+              only: /^v.*/
+            branches:
+              ignore: /.*/
