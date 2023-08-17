@@ -5,6 +5,6 @@ workflows:
   test:
     jobs:
       - node/test:
-        version: '18.15.0'
-        pkg-manager: npm
-        test-results-for: jest
+          version: '18.15.0'
+          pkg-manager: npm
+          test-results-for: jest
