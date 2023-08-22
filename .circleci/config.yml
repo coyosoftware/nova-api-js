@@ -11,7 +11,7 @@ jobs:
           name: Publish to NPM
           command: |
             npm set //registry.npmjs.org/:_authToken=$NPM_TOKEN
-            npm publish
+            npm publish --access public
 workflows:
   tagged-build:
     jobs:
@@ -25,3 +25,5 @@ workflows:
           filters:
             tags:
               only: /v[0-9]+(\.[0-9]+)*/
+            branches:
+              ignore: /.*/
