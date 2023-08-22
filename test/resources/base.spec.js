@@ -39,28 +39,45 @@ describe("Base", () => {
       it('issues a get request to the specified path', () => {
         let catchFn = jest.fn();
         let thenFn = jest.fn();
-  
+
         const base = new Base(SUBDOMAIN, ENDPOINT);
-  
+
         base.doGet('foo').then(thenFn).catch(catchFn);;
-  
+
         expect(mockAxios.get).toHaveBeenCalledWith(`${base.baseUrl}/foo`, {});
-      });  
+      });
     });
 
     describe("when there is an api key configured", () => {
       const API_KEY = 'abc123';
 
-      it('issues an authenticated get request to the specified path', () => {
-        let catchFn = jest.fn();
-        let thenFn = jest.fn();
-  
-        const base = new Base(SUBDOMAIN, ENDPOINT, API_KEY);
-  
-        base.doGet('foo').then(thenFn).catch(catchFn);;
-  
-        expect(mockAxios.get).toHaveBeenCalledWith(`${base.baseUrl}/foo`, { headers: { "Api-Token": API_KEY } });
-      });  
+      describe("and no parameters are given", () => {
+        it('issues an authenticated get request to the specified path with the params configuration', () => {
+          let catchFn = jest.fn();
+          let thenFn = jest.fn();
+
+          const base = new Base(SUBDOMAIN, ENDPOINT, API_KEY);
+
+          base.doGet('foo').then(thenFn).catch(catchFn);;
+
+          expect(mockAxios.get).toHaveBeenCalledWith(`${base.baseUrl}/foo`, { headers: { "Api-Token": API_KEY } });
+        });
+      });
+
+      describe("and some parameters are given", () => {
+        const PARAMS = { "foo": "bar" };
+
+        it('issues an authenticated get request to the specified path with the params configuration', () => {
+          let catchFn = jest.fn();
+          let thenFn = jest.fn();
+
+          const base = new Base(SUBDOMAIN, ENDPOINT, API_KEY);
+
+          base.doGet('foo', PARAMS).then(thenFn).catch(catchFn);;
+
+          expect(mockAxios.get).toHaveBeenCalledWith(`${base.baseUrl}/foo`, { headers: { "Api-Token": API_KEY }, params: PARAMS });
+        });
+      });
     });
   });
 

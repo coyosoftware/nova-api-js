@@ -1,4 +1,6 @@
+import Companies from "./resources/companies";
 import Public from "./resources/public";
+import Reports from "./resources/reports";
 import Users from "./resources/users";
 
 class NovaApi {
@@ -10,8 +12,16 @@ class NovaApi {
     this.#apiKey = apiKey;
   }
 
+  get companies() {
+    return new Companies(this.#subdomain, this.#apiKey);
+  }
+
   get public() {
     return new Public();
+  }
+
+  get reports() {
+    return new Reports(this.#subdomain, this.#apiKey);
   }
 
   get users() {

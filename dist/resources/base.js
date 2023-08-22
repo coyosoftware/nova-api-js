@@ -26,13 +26,16 @@ class Base {
     }
     return this.#endpoint.startsWith('/') ? `${SCHEME}://${this.#subdomain}.${HOST}${this.#endpoint}` : `${SCHEME}://${this.#subdomain}.${HOST}/${this.#endpoint}`;
   }
-  doGet(path) {
+  doGet(path, params) {
     const url = path.startsWith('/') ? `${this.baseUrl}${path}` : `${this.baseUrl}/${path}`;
     let config = {};
     if (this.#apiKey) {
       config['headers'] = {
         'Api-Token': this.#apiKey
       };
+    }
+    if (params) {
+      config['params'] = params;
     }
     return _axios.default.get(url, config);
   }
