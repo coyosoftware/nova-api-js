@@ -15,6 +15,10 @@ export default class Companies extends Base {
     return this.doGet('attachments', params);
   }
 
+  list() {
+    return this.doGet('/');
+  }
+
   statement(companyIds, date) {
     const params = new URLSearchParams({ 'date': date });
 

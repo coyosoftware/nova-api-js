@@ -7,6 +7,7 @@ Please note that this package is in constant development and does not support al
 * [Installation](#installation)
 * [Basic example](#basic-example)
 * [Supported endpoints](#supported-endpoints)
+  * [Companies](#companies)
   * [Public](#public)
   * [Users](#users)
 
@@ -31,6 +32,35 @@ With the api client instance you can use any of the [supported endpoints](#suppo
 The response for all methods in the API client is an axios response object. Please refer to [Axios](https://github.com/axios/axios) documentation for further information about it.
 
 # Supported endpoints
+
+## Companies
+
+### Attachments
+```javascript
+import NovaApi from '@coyosoftware/nova-api';
+
+const api = new NovaApi('YOUR_SUBDOMAIN', 'USER_API_KEY');
+
+api.companies.attachments(companyIds);
+```
+
+### List
+```javascript
+import NovaApi from '@coyosoftware/nova-api';
+
+const api = new NovaApi('YOUR_SUBDOMAIN', 'USER_API_KEY');
+
+api.companies.list();
+```
+
+### Statement
+```javascript
+import NovaApi from '@coyosoftware/nova-api';
+
+const api = new NovaApi('YOUR_SUBDOMAIN', 'USER_API_KEY');
+
+api.companies.statement(companyIds, date);
+```
 
 ## Public
 
