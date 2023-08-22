@@ -14,7 +14,7 @@ Please note that this package is in constant development and does not support al
 # Installation
 Installation is simple - just run:
 
-    npm i nova-api
+    npm i @coyosoftware/nova-api
 
 # Basic example
 Just initialize a new NovaApi instance passing your Nova.Money subdomain:
