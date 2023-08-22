@@ -13,7 +13,8 @@ jobs:
             npm set //registry.npmjs.org/:_authToken=$NPM_TOKEN
             npm publish --access public
 workflows:
-  tagged-build:
+  version: 2
+  build-and-deploy:
     jobs:
       - node/test:
           version: '18.15.0'
