@@ -7,7 +7,7 @@ class NovaApi {
   #subdomain;
   #apiKey;
 
-  constructor(subdomain, apiKey) {
+  constructor(subdomain?: string, apiKey?: string) {
     this.#subdomain = subdomain;
     this.#apiKey = apiKey;
   }
@@ -29,4 +29,4 @@ class NovaApi {
   }
 }
 
-module.exports = NovaApi;
+export default NovaApi;

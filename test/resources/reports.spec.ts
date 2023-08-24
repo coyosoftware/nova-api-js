@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it, jest } from '@jest/globals';
+import { afterEach, beforeEach, describe, expect, it, jest } from '@jest/globals';
 import mockAxios from 'jest-mock-axios';
 import Reports from '../../src/resources/reports';
 
@@ -29,7 +29,7 @@ describe("Reports", () => {
 
       const params = new URLSearchParams({ 'initial_date': initialDate, 'final_date': finalDate });
 
-      COMPANY_IDS.forEach(id => params.append('company_ids[]', id));
+      COMPANY_IDS.forEach(id => params.append('company_ids[]', String(id)));
 
       api.cashFlow(COMPANY_IDS, initialDate, finalDate).then(thenFn).catch(catchFn);
 
@@ -57,7 +57,7 @@ describe("Reports", () => {
 
       const params = new URLSearchParams({ 'initial_date': initialDate, 'final_date': finalDate });
 
-      COMPANY_IDS.forEach(id => params.append('company_ids[]', id));
+      COMPANY_IDS.forEach(id => params.append('company_ids[]', String(id)));
 
       api.general(COMPANY_IDS, initialDate, finalDate).then(thenFn).catch(catchFn);
 

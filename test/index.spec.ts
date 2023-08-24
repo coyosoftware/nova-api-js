@@ -1,3 +1,5 @@
+import { describe, expect, it } from '@jest/globals';
+
 import NovaApi from '../src/index';
 
 import Companies from '../src/resources/companies';

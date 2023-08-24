@@ -1,32 +1,28 @@
+import axios, { AxiosResponse } from 'axios';
+
 const SCHEME = 'https';
 const HOST = 'nova.money';
 
-import axios from 'axios';
-
 export default class Base {
-  #endpoint;
-  #subdomain;
-  #apiKey;
+  #endpoint: string;
+  #subdomain: string;
+  #apiKey: string;
 
-  constructor(subdomain, endpoint, apiKey) {
+  constructor(subdomain: string, endpoint: string, apiKey?: string) {
     this.#subdomain = subdomain;
     this.#endpoint = endpoint;
     this.#apiKey = apiKey;
   }
 
-  get baseUrl() {
-    if (!this.#subdomain) {
-      throw 'The subdomain must be informed';
-    }
-
-    if (!this.#endpoint) {
-      throw 'The endpoint must be informed';
-    }
-
+  get baseUrl(): string {
     return this.#endpoint.startsWith('/') ? `${SCHEME}://${this.#subdomain}.${HOST}${this.#endpoint}` : `${SCHEME}://${this.#subdomain}.${HOST}/${this.#endpoint}`;
   }
 
-  doGet(path, params) {
+  dateToISOString(date: Date | string): string {
+    return (date instanceof Date) ? date.toISOString() : date;
+  }
+
+  doGet(path: string, params?: URLSearchParams | Object): Promise<AxiosResponse> {
     const url = path.startsWith('/') ? `${this.baseUrl}${path}` : `${this.baseUrl}/${path}`;
 
     let config = {};
@@ -42,7 +38,7 @@ export default class Base {
     return axios.get(url, config);
   }
 
-  doPost(path, data) {
+  doPost(path: string, data: Object): Promise<AxiosResponse> {
     const url = path.startsWith('/') ? `${this.baseUrl}${path}` : `${this.baseUrl}/${path}`;
 
     return axios.post(url, data);

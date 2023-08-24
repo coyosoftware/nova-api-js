@@ -1,4 +1,4 @@
-import { describe, expect, it, jest } from '@jest/globals';
+import { afterEach, describe, expect, it, jest } from '@jest/globals';
 import mockAxios from 'jest-mock-axios';
 import Users from '../../src/resources/users';
 

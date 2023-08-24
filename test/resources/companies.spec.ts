@@ -1,4 +1,4 @@
-import { describe, expect, it, jest } from '@jest/globals';
+import { afterEach, describe, expect, it, jest } from '@jest/globals';
 import mockAxios from 'jest-mock-axios';
 import Companies from '../../src/resources/companies';
 
@@ -21,7 +21,7 @@ describe("Companies", () => {
 
       const params = new URLSearchParams();
 
-      COMPANY_IDS.forEach(id => params.append('company_ids[]', id));
+      COMPANY_IDS.forEach(id => params.append('company_ids[]', String(id)));
 
       api.attachments(COMPANY_IDS).then(thenFn).catch(catchFn);
 
@@ -57,7 +57,7 @@ describe("Companies", () => {
 
       const params = new URLSearchParams({ 'date': DATE });
 
-      COMPANY_IDS.forEach(id => params.append('company_ids[]', id));
+      COMPANY_IDS.forEach(id => params.append('company_ids[]', String(id)));
 
       api.statement(COMPANY_IDS, DATE).then(thenFn).catch(catchFn);
 

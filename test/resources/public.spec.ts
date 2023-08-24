@@ -1,12 +1,14 @@
-import { describe, expect, it, jest } from '@jest/globals';
+import { beforeEach, describe, expect, it, jest } from '@jest/globals';
 
 import Public from '../../src/resources/public';
 import Users from '../../src/resources/users';
 
 jest.mock('../../src/resources/users');
 
+const mockedUsers = Users as jest.Mocked<typeof Users>;
+
 beforeEach(() => {
-  Users.mockClear();
+  mockedUsers.mockClear();
 });
 
 describe("Public", () => {
@@ -21,7 +23,7 @@ describe("Public", () => {
 
       expect(Users).toHaveBeenCalledWith('public');
 
-      const mockUsersInstance = Users.mock.instances[0];
+      const mockUsersInstance = mockedUsers.mock.instances[0];
       const mockUserSignIn = mockUsersInstance.signIn;
 
       expect(mockUserSignIn).toHaveBeenCalledWith(EMAIL, PASSWORD);

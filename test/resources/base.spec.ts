@@ -1,4 +1,4 @@
-import { describe, expect, it, jest } from '@jest/globals';
+import { afterEach, describe, expect, it, jest } from '@jest/globals';
 import mockAxios from 'jest-mock-axios';
 import Base from '../../src/resources/base';
 
@@ -11,22 +11,6 @@ describe("Base", () => {
   const SUBDOMAIN = 'foobar';
 
   describe("#baseUrl", () => {
-    describe('when no endpoint is informed', () => {
-      it('throws an error', () => {
-        expect(() => {
-          new Base(SUBDOMAIN, null).baseUrl
-        }).toThrowError(/The endpoint must be informed/);
-      });
-    });
-
-    describe('when no subdomain is informed', () => {
-      it('throws an error', () => {
-        expect(() => {
-          new Base(null, ENDPOINT).baseUrl
-        }).toThrowError(/The subdomain must be informed/);
-      });
-    });
-
     describe('when both endpoint and subdomain are informed', () => {
       it('returns the base url', () => {
         expect(new Base(SUBDOMAIN, ENDPOINT).baseUrl).toEqual(`https://${SUBDOMAIN}.nova.money/${ENDPOINT}`);
