@@ -43,6 +43,21 @@ describe("Companies", () => {
       expect(mockAxios.get).toHaveBeenCalledWith(`${api.baseUrl}/`, { headers: { "Api-Token": API_KEY } });
     });
   });
+  describe("#shareholders", () => {
+    const API_KEY = 'abc123';
+    const COMPANY_ID= 30;
+
+    it('issues an authenticated get to the companies index endpoint', () => {
+      let catchFn = jest.fn();
+      let thenFn = jest.fn();
+
+      const api = new Companies(SUBDOMAIN, API_KEY);
+
+      api.shareholders(COMPANY_ID).then(thenFn).catch(catchFn);
+
+      expect(mockAxios.get).toHaveBeenCalledWith(`${api.baseUrl}/${COMPANY_ID}/shareholders`, { headers: { "Api-Token": API_KEY } });
+    });
+  });
 
   describe("#statement", () => {
     const API_KEY = 'abc123';

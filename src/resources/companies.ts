@@ -17,6 +17,10 @@ export default class Companies extends Base {
     return this.doGet('attachments', params);
   }
 
+  shareholders(companyId: number): Promise<AxiosResponse> {
+    return this.doGet(`${companyId}/shareholders`);
+  }
+
   list(): Promise<AxiosResponse> {
     return this.doGet('/');
   }

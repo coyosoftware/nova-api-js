@@ -1,15 +1,23 @@
-# What's this?
+# What's this?<!-- omit from toc -->
 This is a wrapper for the [Nova.Money API](https://app.swaggerhub.com/apis-docs/coyosoftware/Nova.Money/v1).
 
 Please note that this package is in constant development and does not support all API endpoints yet.
 
-# What's in this document?
-* [Installation](#installation)
-* [Basic example](#basic-example)
-* [Supported endpoints](#supported-endpoints)
-  * [Companies](#companies)
-  * [Public](#public)
-  * [Users](#users)
+# What's in this document?<!-- omit from toc -->
+- [Installation](#installation)
+- [Basic example](#basic-example)
+- [Supported endpoints](#supported-endpoints)
+  - [Companies](#companies)
+    - [Attachments](#attachments)
+    - [List](#list)
+    - [Statement](#statement)
+    - [Shareholders](#shareholders)
+  - [Public](#public)
+    - [SignIn](#signin)
+  - [Users](#users)
+    - [SignIn](#signin-1)
+    - [Subdomains](#subdomains)
+- [License](#license)
 
 # Installation
 Installation is simple - just run:
@@ -60,6 +68,15 @@ import NovaApi from '@coyosoftware/nova-api';
 const api = new NovaApi('YOUR_SUBDOMAIN', 'USER_API_KEY');
 
 api.companies.statement(companyIds, date);
+```
+
+### Shareholders
+```javascript
+import NovaApi from '@coyosoftware/nova-api';
+
+const api = new NovaApi('YOUR_SUBDOMAIN', 'USER_API_KEY');
+
+api.companies.shareholders(companyId);
 ```
 
 ## Public
