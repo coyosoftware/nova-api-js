@@ -101,8 +101,9 @@ const api = new NovaApi('YOUR_SUBDOMAIN');
 api.users.signIn(email, password);
 ```
 
-The difference between Public and Users sign in the that the Users sign in performs an additional check to see if the user found with the given email and password has access to the specified subdomain before returning the api token, while the Public Sign In just returns the api token without any further check.
-The Public Sign In is useful when you have the same user for multiple subdomains and want to perform operations on them (because the api token is valid across the subdomains).
+The distinction between Public Sign In and Users Sign In lies in the additional step taken by Users Sign In to verify whether the user, identified by the given email/password, has access to the specified subdomain before issuing the API token. In contrast, Public Sign In simply returns the API token without conducting any further checks.
+
+Public Sign In proves advantageous when dealing with the same user across multiple subdomains, allowing seamless operations across them. This is possible because the API token remains valid across all associated subdomains.
 
 ### Subdomains
 ```javascript
