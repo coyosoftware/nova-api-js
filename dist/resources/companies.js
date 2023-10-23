@@ -11,6 +11,9 @@ class Companies extends base_1.default {
         companyIds.forEach(id => params.append('company_ids[]', String(id)));
         return this.doGet('attachments', params);
     }
+    shareholders(companyId) {
+        return this.doGet(`${companyId}/shareholders`);
+    }
     list() {
         return this.doGet('/');
     }
